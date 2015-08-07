@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ldap">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../BluetoothLEService/ldap.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
