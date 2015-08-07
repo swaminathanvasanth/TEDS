@@ -1,3 +1,6 @@
+﻿TEDS - Transducer Electronic Data Sheet (IEEE 1451 implementation for the creation of the plug-n-play infrastructure)
+
+
 The primal problem with the Internet of Things is the lack
 of interoperability at various levels, and more predominately
 at the device level. While there exists multitude of plat-
