@@ -1,4 +1,0 @@
-/home/vasanth/AndroidstudioProjects/RBCCPS_IoTStack/app/build/intermediates/classes/debug
-/home/vasanth/AndroidstudioProjects/RBCCPS_IoTStack/app/build/intermediates/pre-dexed/debug/eventbus-0aecfd28728dd06258e0c09d7c80a69e15b43c64.jar
-/home/vasanth/AndroidstudioProjects/RBCCPS_IoTStack/app/build/intermediates/pre-dexed/debug/RESTExportWithAndroid_1-cbceb2e57552c073935b644b028ffa4c5b1ef177.jar
-/home/vasanth/AndroidstudioProjects/RBCCPS_IoTStack/app/build/intermediates/pre-dexed/debug/ldap-388bbd039218c0c8bc66a13328363e5289d7399a.jar
