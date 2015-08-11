@@ -11,7 +11,6 @@ package IEEE1451.layer0.datatypes;
  *
  * @author Silvestros Nick (nsilvestros@yahoo.com)
  */
-
 public final class UInt8_{
     public static final int MIN_VALUE = 0;
     public static final int MAX_VALUE = 255;
