@@ -1,52 +1,3 @@
-
-/*
- * 
- * $RCSfile: TEDSDecoderChart.java $	
- *
- * Copyright (c) 2015, RBCCPS, IISc Bangalore. 
- * All rights reserved.
- * 
- * Redistribution and use in source and binary forms, with or without 
- * modification, are permitted provided that the following conditions 
- * are met:
- * 
- *    -	Redistributions of source code must retain the above 
- *      copyright notice, this list of conditions and the following 
- *      disclaimer. 
- *    -	Redistributions in binary form must reproduce the above 
- *      copyright notice, this list of conditions and the following 
- *      disclaimer in the documentation and/or other materials provided 
- *      with the distribution. 
- *    -	Neither the name of RBCCPS, IISc Bangalore nor the names 
- *      of its contributors may be used to endorse or promote products 
- *      derived from this software without specific prior written 
- *      permission. 
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
- * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
- * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-/**
- * Create MetaTEDS
- * 
- * @author Silvestros Nick (nsilvestros@yahoo.com)
- *
- * Modified @author Vasanth Rajaraman (swaminathanvasanth.r@gmail.com)
- */
-
-
-
-
 package IEEE1451.encoders;
 
 
@@ -57,7 +8,6 @@ import java.util.Arrays;
 import java.util.Date;
 
 import IEEE1451.Teds_Options;
-import IEEE1451.Database.SQL.metaTEDS.MetaTEDS_SQLDB;
 import IEEE1451.XMLParser.MetaTEDS_Data;
 import IEEE1451.decoder.BinarySplitter;
 import IEEE1451.decoder.TEDSDecoder;
@@ -70,8 +20,13 @@ import IEEE1451.layer0.datatypes.teds.DUUID;
 import IEEE1451.layer0.datatypes.teds.Description;
 import IEEE1451.layer0.datatypes.teds.TEDS;
 import IEEE1451.layer0.messages.DecodeOctetStream;
+import metaTEDS.sql.db.MetaTEDS_SQLDB;
 
-
+/**
+ * Create MetaTEDS
+ * 
+ * @author Silvestros Nick (nsilvestros@yahoo.com)
+ */
 public class MetaTEDS_B {
 	DTEDSID tedsid;
 	DUUID uuid;
@@ -143,7 +98,9 @@ public class MetaTEDS_B {
 		s = TEDS.encodeTEDS(a);
 
 		System.out.println(s);
-		
+		System.out
+		.println("-------------------- BINARY TEDS --------------------");
+/*		
 		System.out.println("\nStoring Binary TEDS in MySQL Database");
 		System.out.println("...");
 		System.out.println("...");
@@ -157,9 +114,7 @@ public class MetaTEDS_B {
 
 		
 		System.out.println();
-		System.out
-				.println("-------------------- BINARY TEDS --------------------");
-		System.out.println();
+		
 	*/	
 /*		FileWriter file = new FileWriter("/home/vasanth/IEEE1451/TEDS/000000144F01000061DB.xml"); // /home/vasanth/Desktop/MetaTEDS
 		file.write(dateFormat.format(date) + " - ");

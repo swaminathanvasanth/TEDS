@@ -5,7 +5,8 @@ import IEEE1451.layer0.datatypes.UInt8;
 /**
  * TEDS Data block
  * TLV structure: Type-Length-Value
- * Length: number of value octets (assumption: octet_length=1 (it is reguralry defined in TEDSID))
+ * Length: number of value octets (assumption: octet_length=1 
+ * (it is reguralry defined in TEDSID))
  * @info 8.1.2 (p.81)
  * @author Silvestros Nick (nsilvestros@yahoo.com)
  */
@@ -42,6 +43,13 @@ public abstract class DataBlock {
     public static final int ACTHALT = 36;
     public static final int ESOPTION = 39;
 
+    //Calibration field types
+    public static final int SENSOR_TYPE = 11;
+    public static final int UNITS = 11;
+    public static final int MAX_VAL = 11;
+    public static final int MIN_VAL = 11;
+    public static final int ZERO_ERROR = 11;
+	public static final int CHANNEL_NO = 11;
 
     protected UInt8 type;
 

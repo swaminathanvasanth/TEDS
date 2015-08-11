@@ -19,7 +19,7 @@ public class UUID {
         value = new UInt8[10];
 
         if (val.length() != 20)
-            throw new Exception("Illegal UUID format (20 digit HEX)");
+            throw new Exception("Invalid UUID format (20 digit HEX)");
         
         for (i=0; i<20; i+=2){
             value[i/2] = new UInt8("0x" + val.substring(i, i+2));
