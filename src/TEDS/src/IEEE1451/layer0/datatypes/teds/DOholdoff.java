@@ -1,3 +1,4 @@
+package IEEE1451.layer0.datatypes.teds;
 
 /*
  * 
@@ -37,6 +38,8 @@
  */
 
 /**
+ * Decription
+ * @info user-defined field
  * @author Silvestros Nick (nsilvestros@yahoo.com)
  */
 

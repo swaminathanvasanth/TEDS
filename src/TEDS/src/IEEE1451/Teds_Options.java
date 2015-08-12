@@ -11,7 +11,7 @@ public class Teds_Options {
 	public String maxchan = MetaTEDS_Data.maxchan;
 	public String desc_metateds = MetaTEDS_Data.desc_metateds;
 
-	// Channel Teds
+	// Channel TEDS
 	public String calkey = "";
 	public String chantype = "";
 	public String phyunits = "";
@@ -26,5 +26,15 @@ public class Teds_Options {
 	public String rdelayt = "";
 	public String sampling = "";
 	public String desc_channelteds = "";
+	
+	// Calibration TEDS
+	public String channel_no = "";
+	public String sensor_type = "";
+	public String units = "";
+	public String min_val = "";
+	public String max_val = "";
+	public String zero_error = "";
+	
+	
 	public static final float NO_SELF_TEST = Float32.NaN;
 }

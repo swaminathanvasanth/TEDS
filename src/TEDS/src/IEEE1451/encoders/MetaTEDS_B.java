@@ -70,8 +70,13 @@ import IEEE1451.layer0.datatypes.teds.DUUID;
 import IEEE1451.layer0.datatypes.teds.Description;
 import IEEE1451.layer0.datatypes.teds.TEDS;
 import IEEE1451.layer0.messages.DecodeOctetStream;
+import metaTEDS.sql.db.MetaTEDS_SQLDB;
 
-
+/**
+ * Create MetaTEDS
+ * 
+ * @author Silvestros Nick (nsilvestros@yahoo.com)
+ */
 public class MetaTEDS_B {
 	DTEDSID tedsid;
 	DUUID uuid;
@@ -143,7 +148,9 @@ public class MetaTEDS_B {
 		s = TEDS.encodeTEDS(a);
 
 		System.out.println(s);
-		
+		System.out
+		.println("-------------------- BINARY TEDS --------------------");
+/*		
 		System.out.println("\nStoring Binary TEDS in MySQL Database");
 		System.out.println("...");
 		System.out.println("...");
@@ -157,9 +164,7 @@ public class MetaTEDS_B {
 
 		
 		System.out.println();
-		System.out
-				.println("-------------------- BINARY TEDS --------------------");
-		System.out.println();
+		
 	*/	
 /*		FileWriter file = new FileWriter("/home/vasanth/IEEE1451/TEDS/000000144F01000061DB.xml"); // /home/vasanth/Desktop/MetaTEDS
 		file.write(dateFormat.format(date) + " - ");

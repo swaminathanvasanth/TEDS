@@ -1,5 +1,6 @@
 package IEEE1451.encoders;
 
+import IEEE1451.Teds_Options;
 import IEEE1451.layer0.datatypes.Float32;
 import IEEE1451.layer0.datatypes.UInt8;
 import IEEE1451.layer0.datatypes.teds.DataBlock;
@@ -27,11 +28,13 @@ import IEEE1451.layer0.datatypes.teds.chan.UpdateT;
 import IEEE1451.layer0.datatypes.teds.chan.WSetupT;
 import IEEE1451.layer0.datatypes.teds.chan.WarmUpT;
 import IEEE1451.layer0.messages.DecodeOctetStream;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
 /**
@@ -103,7 +106,7 @@ public class ChanTEDS1 {
 	public UInt8[] getDesc() {
 		return desc.getOctetArray();
 	}
-	public void main() throws Exception{
+	public void main(Teds_Options teds_options) throws Exception{
         TEDS chanteds = new TEDS();
 
         tedsid = new TEDSID(TEDSAccessCodes.CHANTEDS, TEDSID.ORIGINAL_RELEASE);
@@ -166,12 +169,51 @@ public class ChanTEDS1 {
         chanteds.addDataBlock(sampling);
 
         // description
-        Description desc = new Description("Temperature_(Kelvins)");
+        Description desc = new Description("T");
         chanteds.addDataBlock(desc);
+
         
         UInt8[] a = chanteds.getOctetArray();
+        
         System.out.println("Length: " + chanteds.getLength());
+        System.out
+		.println("-------------------- BINARY TEDS --------------------");
+        System.out.print("calkey : ");
+		System.out.println(Arrays.toString(calkey.getOctetArray()));
+		System.out.print("chantype : ");
+		System.out.println(Arrays.toString(chantype.getOctetArray()));
+		System.out.print("phyunits : ");
+		System.out.println(Arrays.toString(phyunits.getOctetArray()));
+		System.out.print("lowlimit : ");
+		System.out.println(Arrays.toString(lowlimit.getOctetArray()));
+		System.out.print("hilimit : ");
+		System.out.println(Arrays.toString(hilimit.getOctetArray()));
+		System.out.print("oerror : ");
+		System.out.println(Arrays.toString(oerror.getOctetArray()));
+		System.out.print("selftest : ");
+		System.out.println(Arrays.toString(selftest.getOctetArray()));
+		System.out.print("sample : ");
+		System.out.println(Arrays.toString(sample.getOctetArray()));
+		System.out.print("updatet : ");
+		System.out.println(Arrays.toString(updatet.getOctetArray()));
+		System.out.print("rsetupt : ");
+		System.out.println(Arrays.toString(rsetupt.getOctetArray()));
+		System.out.print("warmupt : ");
+		System.out.println(Arrays.toString(warmupt.getOctetArray()));
+		System.out.print("rdelayt : ");
+		System.out.println(Arrays.toString(rdelayt.getOctetArray()));
+		System.out.print("sampling : ");
+		System.out.println(Arrays.toString(sampling.getOctetArray()));
+		System.out.print("desc_channelteds : ");
+		System.out.println(Arrays.toString(desc.getOctetArray()));
+		System.out
+		.println("-------------------- BINARY TEDS --------------------");
+		String s = new String();
+		s = TEDS.encodeTEDS(a);
 
+		System.out.println(s);
+		System.out
+		.println("-------------------- BINARY TEDS --------------------");
         //OutputStream out = new FileOutputStream(new File("ChanTEDS_1"));
         //Properties po = new Properties();
         //po.setProperty("teds", TEDS.encodeTEDS(a));
