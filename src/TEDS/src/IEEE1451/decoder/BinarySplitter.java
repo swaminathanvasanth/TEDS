@@ -85,7 +85,7 @@ public class BinarySplitter {
 		//		System.out.println(" Decoded Value is : " +decodedString);
 				decodedString = " ";
 				if(i != binary.length())
-					i++; 	
+					i++; 
 				isString = false;
 			} else if(isString && i+1 == binary.length()){
 				value += Character.toString(binary.charAt(i));

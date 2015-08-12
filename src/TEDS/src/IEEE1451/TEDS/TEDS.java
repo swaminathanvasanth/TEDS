@@ -53,9 +53,15 @@ import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.SAXException;
 
 import IEEE1451.Teds_Options;
+import IEEE1451.XMLParser.CaliberationTEDS_Data;
+import IEEE1451.XMLParser.CaliberationTEDS_Parser_Handler;
+import IEEE1451.XMLParser.ChannelTEDS_Data;
+import IEEE1451.XMLParser.ChannelTEDS_Parser_Handler;
 import IEEE1451.XMLParser.MetaTEDS_Data;
 import IEEE1451.XMLParser.MetaTEDS_Parser_Handler;
 import IEEE1451.decoder.TEDSDecoder;
+import IEEE1451.encoders.CalTEDS1;
+import IEEE1451.encoders.ChanTEDS1;
 import IEEE1451.encoders.MetaTEDS_B;
 
 
@@ -65,12 +71,28 @@ public class TEDS {
 		// TODO Auto-generated method stub
 
 		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-		MetaTEDS_Data data = new MetaTEDS_Data();
+		
+		//TEDS_Data initialisation
+		MetaTEDS_Data meta_data = new MetaTEDS_Data();
+		ChannelTEDS_Data channel_data = new ChannelTEDS_Data();
+		CaliberationTEDS_Data caliberation_data = new CaliberationTEDS_Data();
+		
 		try {
 			SAXParser saxParser = saxParserFactory.newSAXParser();
+			
+			//MetaTEDS Handler
 			MetaTEDS_Parser_Handler handler = new MetaTEDS_Parser_Handler();
 			saxParser.parse(new File("/home/vasanth/IEEE1451/TEDS/000000144F01000061DB.xml"), 
 					handler); ///home/vasanth/Desktop/MetaTEDS.xml
+			//ChannelTEDS Handler
+			ChannelTEDS_Parser_Handler handler1 = new ChannelTEDS_Parser_Handler();
+			saxParser.parse(new File("/home/vasanth/IEEE1451/TEDS/000000144F01000061DB.xml"), 
+					handler1); ///home/vasanth/Desktop/MetaTEDS.xml
+			//CaliberationTEDS Handler
+			CaliberationTEDS_Parser_Handler handler2 = new CaliberationTEDS_Parser_Handler();
+			saxParser.parse(new File("/home/vasanth/IEEE1451/TEDS/000000144F01000061DB.xml"), 
+					handler2); ///home/vasanth/Desktop/MetaTEDS.xml
+			
 			System.out.println("Parsing TEDS XML File.");
 			System.out.println("...");
 			System.out.println("...");
@@ -81,20 +103,47 @@ public class TEDS {
 		System.out.println("\nFile Parsed !");
 		
 		Teds_Options teds_options = new Teds_Options();
-		teds_options.uuid = data.getUuid();
-		teds_options.maxchan = data.getMaxchan();
-		teds_options.desc_metateds = data.getDesc_metateds();
-		teds_options.oholdoff = data.getOholdoff();
+		teds_options.uuid = meta_data.getUuid();
+		teds_options.maxchan = meta_data.getMaxchan();
+		teds_options.desc_metateds = meta_data.getDesc_metateds();
+		teds_options.oholdoff = meta_data.getOholdoff();
+		
+		teds_options.calkey = channel_data.getcalkey();
+		teds_options.chantype = channel_data.getchantype();
+		teds_options.phyunits = channel_data.getphyunits();
+		teds_options.lowlimit = channel_data.getlowlimit();
+		teds_options.hilimit = channel_data.gethilimit();
+		teds_options.oerror = channel_data.getoerror();
+		teds_options.selftest = channel_data.getselftest();
+		teds_options.sample = channel_data.getsample();
+		teds_options.updatet = channel_data.getupdatet();
+		teds_options.rsetupt = channel_data.getrsetupt();
+		teds_options.warmupt = channel_data.getwarmupt();
+		teds_options.rdelayt = channel_data.getrdelayt();
+		teds_options.sampling = channel_data.getsampling();
+		teds_options.desc_channelteds = channel_data.getdesc_channelteds();
+		
+		teds_options.channel_no = caliberation_data.getchannel_no();
+		teds_options.sensor_type = caliberation_data.getsensor_type();
+		teds_options.units = caliberation_data.getunits();
+		teds_options.min_val = caliberation_data.getmin_val();
+		teds_options.max_val = caliberation_data.getmax_val();
+		teds_options.zero_error = caliberation_data.getzero_error();
 
 		System.out.println("\nGenerating Binary TEDS..");
 		System.out.println("...");
 		System.out.println("...");
 
 		MetaTEDS_B metateds = new MetaTEDS_B();
+		ChanTEDS1 chanteds = new ChanTEDS1();
+		CalTEDS1 calteds = new CalTEDS1();
+		//PhyTEDS1 phyteds = new PhyTEDS1();
 
 		try {
-
+			//TEDS Main function
 			metateds.main(teds_options);
+			chanteds.main(teds_options);
+			calteds.main(teds_options);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -44,7 +44,7 @@ public class ChanTEDS2 {
         TEDSID tedsid = new TEDSID(TEDSAccessCodes.CHANTEDS, TEDSID.ORIGINAL_RELEASE);
         chanteds.addDataBlock(tedsid);
 
-        // no callibration
+        // no calibration
         CalKey calkey = new CalKey(CalKey.CAL_NONE);
         chanteds.addDataBlock(calkey);
 

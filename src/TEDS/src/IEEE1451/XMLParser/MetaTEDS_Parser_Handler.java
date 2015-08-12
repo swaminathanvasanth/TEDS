@@ -66,8 +66,8 @@ public class MetaTEDS_Parser_Handler extends DefaultHandler {
 			metateds_data = new MetaTEDS_Data();
 		} else if (qName.equalsIgnoreCase("TEDSid")) {
 			metateds_data = new MetaTEDS_Data();
-			bTEDSid = true;} 
-		else if (qName.equalsIgnoreCase("uuid")) {
+			bTEDSid = true;
+		} else if (qName.equalsIgnoreCase("uuid")) {
 			buuid = true;
 		} else if (qName.equalsIgnoreCase("oholdoff")) {
 			boholdoff = true;

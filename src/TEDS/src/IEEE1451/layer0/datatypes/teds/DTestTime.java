@@ -50,6 +50,11 @@ package IEEE1451.layer0.datatypes.teds;
 import IEEE1451.layer0.messages.EncodeOctetStream;
 import IEEE1451.layer0.datatypes.*;
 
+/**
+ * Decription
+ * @info user-defined field
+ * @author Silvestros Nick (nsilvestros@yahoo.com)
+ */
 public class DTestTime extends DataBlock{
 
     private String value;
